@@ -1,0 +1,224 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
+/* Variables Colores */
+:root{
+    --redPrimary: #df0707;
+    --redSecondary: #ba0c0c;
+    --redDark: #980a0a;
+    --redDark2: #780909;
+    --black: #141414;
+}
+
+/* ----- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body{
+    background-color: var(--black);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Container */
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+/* Header */
+header{
+    padding: 20px 0;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--redPrimary);
+    font-weight: normal;
+}
+
+a{
+    text-decoration: none;
+    color: #d6d6d6;
+    padding: .3em;
+}
+a.active{
+    color: white;
+}
+a:hover,
+a:focus{
+    color: #8e8e8e;
+}
+
+/* Titulo */
+.container-title-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.container-title-controls h3{
+    color: #fff;
+    font-size: 30px;
+}
+.container-title-controls .indicadores button{
+    background-color: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+.container-title-controls .indicadores button:hover,
+.container-title-controls .indicadores button.active{
+    background-color: var(--redPrimary);
+}
+/* Principal */
+.prinFilm{
+    font-size: 16px;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50), 0%, rgba(0, 0, 0, .50), 100%);
+    background: url(../img/rick.jpg) center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.prinFilm .container{
+    margin: 0 auto;
+    margin-bottom: 6.25em;
+}
+
+.prinFilm .title{
+    font-weight: 600;
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+}
+
+.prinFilm .description{
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+.prinFilm .button{
+    background: rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+.prinFilm .button:hover{
+    background-color: #fff;
+    color: #000;
+}
+.prinFilm .button i{
+    margin-right: 1.25em;
+}
+
+/* Peliculas Recomendadas */
+.recoFilm{
+    margin-bottom: 70px;
+}
+.recoFilm .prinContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.recoFilm .prinContainer .flecha-left,
+.recoFilm .prinContainer .flecha-right{
+    position: absolute;
+    border: none;
+    background: rgba(0, 0, 0, .3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease;
+}
+.recoFilm .prinContainer .flecha-left{
+    left: 0;
+}
+.recoFilm .prinContainer .flecha-right{
+    right: 0;
+}
+.recoFilm .prinContainer .flecha-left:hover,
+.recoFilm .prinContainer .flecha-right:hover{
+    background: rgba(0, 0, 0, .9);
+}
+
+/* Carrousel */
+.recoFilm .carrouselCont{
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.recoFilm .carrouselCont .carrousel{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.recoFilm .carrouselCont .carrousel .film{
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+.recoFilm .carrouselCont .carrousel .film img{
+    width: 100%;
+    vertical-align: top;
+}
+.recoFilm .carrouselCont .carrousel .film.hover{
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+/* Responsive */
+@media all and (max-width:800px) {
+    header .logo{
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    header .container{
+        flex-direction: column;
+        text-align: center;
+    }
+    .prinFilm{
+        font-size: 14px;
+    }
+    .prinFilm .description{
+        max-width: 100%;
+    }
+    .recoFilm .carrouselCont{
+        overflow: visible;
+    }
+    .recoFilm .carrouselCont .carrousel{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .recoFilm .indicadores,
+    .recoFilm .flecha-left,
+    .recoFilm .flecha-right{
+        display: none;
+    }
+}
